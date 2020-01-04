@@ -8,7 +8,7 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 
 RUN apt update && apt install -y git make binutils pkg-config libssl-dev libsqlite3-dev curl \
     && rm -rf /var/lib/apt/lists/* \
-    && curl https://sh.rustup.rs -sSf | bash -s -- --default-toolchain nightly -y
+    && curl https://sh.rustup.rs -sSf | bash -s -- --default-toolchain nightly --profile=minimal -y
 
 RUN git clone --depth=1 --recurse-submodules -j`nproc` https://github.com/agersant/polaris.git \
     && cd polaris \
